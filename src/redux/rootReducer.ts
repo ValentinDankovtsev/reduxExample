@@ -18,3 +18,10 @@ export function multplyReducer(state: State, action: Action): newState {
   }
   return state;
 }
+
+export function addToDo(state: State, action: Action): newState {
+  if (action.type === "ADD") {
+    return state ==='item'
+  }
+  return state;
+}

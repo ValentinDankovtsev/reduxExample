@@ -1,4 +1,4 @@
-import { createStore, Action } from "./createStore";
+import { createStore } from "./createStore";
 
 import { rootReducer, multplyReducer } from "./redux/rootReducer";
 
