@@ -1,24 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/ban-types */
-
-export declare type Action = {
-  type: string;
-};
-
-export type State = any;
-export type Reducer = (state: State | undefined, action: Action) => State;
-export type IStore = {
-  dispatch(action: Action):void;
-  subscribe(callback: Function):Function;
-  getState():State;
-  replaceReducer(nextReducer: Reducer):void;
-}
-
-export type Store = any;
-
-
 // eslint-disable-next-line @typescript-eslint/ban-types
-export function createStore(rootReducer: Reducer, initialState?: State): IStore {
+
+export function createStore(rootReducer: Reducer, initialState: State): IStore {
   let state = rootReducer(initialState, { type: "__INIT__" });
 
   const subscribers: any[] = [];
@@ -31,7 +15,7 @@ export function createStore(rootReducer: Reducer, initialState?: State): IStore 
 
     subscribe(callback) {
       subscribers.push(callback);
-      return () => subscribers.splice(0);
+      return () => subscribers.pop();
     },
 
     getState() {

@@ -1,27 +1,39 @@
-import { State, Action } from "../createStore";
+export function rootReducer(state = 0, action: Action): newState {
+  let result = state;
 
-type newState = any;
-
-export function rootReducer(state: State, action: Action): newState {
-  if (action.type === "INCREMENT") {
-    return state + 1;
+  switch (action.type) {
+    case "INCREMENT":
+      result += 1;
+      break;
+    case "DECREMENT":
+      result -= 1;
+      break;
+    default:
+      return state;
   }
-  if (action.type === "DECREMENT") {
-    return state - 1;
-  }
-  return state;
+  return result;
 }
 
 export function multplyReducer(state: State, action: Action): newState {
-  if (action.type === "MULTIPLY") {
-    return state * 5;
+  let result = state;
+  switch (action.type) {
+    case "MULTIPLY":
+      result *= 5;
+      break;
+    default:
+      return result;
   }
-  return state;
+  return result;
 }
 
-export function addToDo(state: State, action: Action): newState {
-  if (action.type === "ADD") {
-    return state ==='item'
+export function addToDo(state = [] as any, action: Action): State {
+  let result = state;
+  switch (action.type) {
+    case "ADD_TODO":
+      result.push(action.text);
+      break;
+    default:
+      result = [];
   }
-  return state;
+  return result;
 }

@@ -1,17 +1,14 @@
-/* eslint-disable @typescript-eslint/ban-types */
-import {State,Action} from '../createStore';
+export function combineReducers(
+  reducersMap: Reducers
+): (state?: State | undefined, action?: Action) => State {
+  return function combinationReducer(state?: State, action?: Action): State {
+    const nextState = {} as State;
 
-type Reducers = {
-    [key:string]:any;
-}
-
-// eslint-disable-next-line @typescript-eslint/ban-types
-export function combineReducers(reducersMap:Reducers):(state?: State | undefined, action?: Action) => State {
-return function combinationReducer(state?: State, action?: Action):State {
-    const nextState = {} as State
-    Object.entries(reducersMap).forEach(([key,reducer])=>{
-        nextState[key]=reducer(state[key],action)
-    })
-    return nextState
-}
+    Object.keys(reducersMap).forEach((key) => {
+      if (state) {
+        nextState[key] = reducersMap[key](state[key], action);
+      }
+    });
+    return nextState;
+  };
 }
