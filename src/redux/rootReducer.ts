@@ -1,4 +1,4 @@
-export function rootReducer(state = 0, action: Action): newState {
+export function rootReducer(state = 1, action: Action): newState {
   let result = state;
 
   switch (action.type) {
@@ -7,6 +7,12 @@ export function rootReducer(state = 0, action: Action): newState {
       break;
     case "DECREMENT":
       result -= 1;
+      break;
+
+    case "SOME_ACTION_TYPE":
+      setTimeout(() => {
+        result -= 20;
+      }, 1000);
       break;
     default:
       return state;

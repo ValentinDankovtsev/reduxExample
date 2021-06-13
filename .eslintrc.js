@@ -24,5 +24,7 @@ module.exports = {
     "no-plusplus": "off",
     "import/no-unresolved": "off",
     "import/extensions": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/ban-types": "off",
   },
 };

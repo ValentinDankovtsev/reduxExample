@@ -1,7 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/ban-types */
-// eslint-disable-next-line @typescript-eslint/ban-types
-
 export function createStore(rootReducer: Reducer, initialState: State): IStore {
   let state = rootReducer(initialState, { type: "__INIT__" });
 

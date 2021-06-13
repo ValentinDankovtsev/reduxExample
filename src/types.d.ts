@@ -2,8 +2,9 @@
 /* eslint-disable @typescript-eslint/ban-types */
 
 declare type Action = {
-  type: string;
+  type?: string;
   text?: string;
+  id?: number;
 };
 
 declare type State = any;
