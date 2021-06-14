@@ -34,6 +34,7 @@ export function multplyReducer(state: State, action: Action): newState {
 
 export function addToDo(state = [] as any, action: Action): State {
   const result = state.slice();
+
   switch (action.type) {
     case "ADD_TODO":
       result.push(action.payload);
