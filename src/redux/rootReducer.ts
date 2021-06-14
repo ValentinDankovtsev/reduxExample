@@ -27,19 +27,19 @@ export function multplyReducer(state: State, action: Action): newState {
       result *= 5;
       break;
     default:
-      return result;
+      return state;
   }
   return result;
 }
 
 export function addToDo(state = [] as any, action: Action): State {
-  let result = state;
+  const result = state;
   switch (action.type) {
     case "ADD_TODO":
-      result.push(action.text);
+      result.push(action.payload);
       break;
     default:
-      result = [];
+      return state;
   }
   return result;
 }

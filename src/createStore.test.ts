@@ -19,6 +19,8 @@ describe("test createStore implementation", () => {
     store.dispatch({ type: "INCREMENT" });
     unsubscribe();
     expect(spy).toHaveBeenCalledTimes(1);
+    store.dispatch({ type: "INCREMENT" });
+    expect(spy).toHaveBeenCalledTimes(1);
   });
 
   it("replaceReducer is work", () => {
@@ -29,5 +31,9 @@ describe("test createStore implementation", () => {
     store.replaceReducer(multplyReducer);
     store.dispatch({ type: "MULTIPLY" });
     expect(store.getState()).toBe(5);
+  });
+  it(" is work", () => {
+    const store = createStore(rootReducer, undefined);
+    expect(store.getState()).toBe(1);
   });
 });

@@ -15,15 +15,9 @@ describe("test1", () => {
       []
     );
 
-    store.dispatch({ type: "ADD_TODO", text: "learn Redax" });
+    store.dispatch({ type: "ADD_TODO", payload: "learn Redax" });
     expect(store.getState()).toEqual({ a: ["learn Redax"], b: 1 });
-    expect(store.getState().a).toEqual(["learn Redax"]);
-    expect(store.getState().b).toBe(1);
     store.dispatch({ type: "INCREMENT" });
-    expect(store.getState()).toEqual({ a: [], b: 2 });
-    expect(store.getState().a).toEqual([]);
-    expect(store.getState().b).toBe(2);
-    store.dispatch({ type: "INCREMENT" });
-    expect(store.getState().b).toBe(3);
+    expect(store.getState()).toEqual({ a: ["learn Redax"], b: 2 });
   });
 });

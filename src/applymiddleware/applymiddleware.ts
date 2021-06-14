@@ -1,5 +1,5 @@
 export function applyMiddleware(middleware: Function) {
-  return function createStoreWithMiddleware(createStore: Function) {
+  return function createStoreWithMiddleware(createStore: Function): Function {
     return (reducer: Reducer, state: State) => {
       const store = createStore(reducer, state);
 
