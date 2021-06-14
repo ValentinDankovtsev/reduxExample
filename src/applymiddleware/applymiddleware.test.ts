@@ -32,13 +32,13 @@ describe("applyMiddleware", () => {
   it(" applyMiddleware test", () => {
     const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
     const store = createStoreWithMiddleware(rootReducer, 2);
-    store.dispatch(someStrangeAction() as Action);
+    store.dispatch(someStrangeAction() as Function);
     expect(store.getState()).toEqual(1);
   });
   it(" applyMiddleware test promise", async () => {
     const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
     const store = createStoreWithMiddleware(rootReducer, 5);
-    await store.dispatch(someStrangeAction() as Action);
+    await store.dispatch(someStrangeAction() as Function);
     expect(store.getState()).toEqual(6);
   });
 });

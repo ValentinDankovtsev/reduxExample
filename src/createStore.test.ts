@@ -16,8 +16,12 @@ describe("test createStore implementation", () => {
     const store = createStore(rootReducer, 0);
     const spy = jest.fn();
     const unsubscribe = store.subscribe(spy);
+    expect(spy).not.toHaveBeenCalled();
     store.dispatch({ type: "INCREMENT" });
+    expect(spy).toHaveBeenCalled();
     unsubscribe();
+    expect(spy).toHaveBeenCalledTimes(1);
+    store.dispatch({ type: "INCREMENT" });
     expect(spy).toHaveBeenCalledTimes(1);
   });
 
@@ -29,5 +33,9 @@ describe("test createStore implementation", () => {
     store.replaceReducer(multplyReducer);
     store.dispatch({ type: "MULTIPLY" });
     expect(store.getState()).toBe(5);
+  });
+  it(" is work", () => {
+    const store = createStore(rootReducer, undefined);
+    expect(store.getState()).toBe(1);
   });
 });
