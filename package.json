@@ -1,19 +1,21 @@
 {
-  "name": "redax",
+  "name": "@vdankovtsev/redux-lib",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "jest",
     "lint": "prettier --check . && eslint . --ext .js,.ts && tsc --noEmit",
     "lint:fix": "prettier --write . && eslint . --fix --ext .js,.ts",
-    "start": "webpack serve --mode development",
-    "build": "webpack --mode production"
+    "build": "tsc -b"
   },
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://ValentinDankovtsev@github.com/ValentinDankovtsev/reduxExample.git"
   },
-  "author": "",
+  "author": "vdankovtsev",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ValentinDankovtsev/reduxExample.git/issues"
@@ -55,5 +57,5 @@
     ],
     "*.{css,md}": "prettier --write"
   },
-  "description": ""
+  "description": "**REDAX SAMPLE**"
 }

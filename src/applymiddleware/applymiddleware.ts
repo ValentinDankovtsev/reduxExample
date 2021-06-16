@@ -1,3 +1,5 @@
+import { State, Reducer, Action } from "../types";
+
 export function applyMiddleware(middleware: Function) {
   return function createStoreWithMiddleware(createStore: Function): Function {
     return (reducer: Reducer, state: State) => {

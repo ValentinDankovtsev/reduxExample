@@ -1,3 +1,5 @@
+import { Reducers, State, Action } from "../types";
+
 export function combineReducers(
   reducersMap: Reducers
 ): (state?: State | undefined, action?: Action) => State {

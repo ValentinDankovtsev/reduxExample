@@ -1,3 +1,5 @@
+import { Reducer, State, IStore } from "./types";
+
 export function createStore(rootReducer: Reducer, initialState: State): IStore {
   let state = rootReducer(initialState, { type: "__INIT__" });
 

@@ -1,3 +1,5 @@
+import { Action, newState, State } from "../types";
+
 export function rootReducer(state = 1, action: Action): newState {
   let result = state;
 
