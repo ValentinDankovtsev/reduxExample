@@ -1,16 +1,16 @@
 import { State, Reducer, Action } from "../types";
 
-export function compose(...args: any[]): any {
-  return args.reduce((acc: any, fn: any): any => (...funArgs: any[]) =>
+export function compose(...args: Function[]): Function {
+  return args.reduce((acc, fn) => (...funArgs: Function[]) =>
     acc(fn(...funArgs))
   );
 }
 
-export function applyMiddleware(...middlewares: any[]): any {
+export function applyMiddleware(...middlewares: Function[]): Function {
   return (createStore: Function) => (
     reducer: Reducer,
     preloadedState: State,
-    enchancer: any
+    enchancer: Function[]
   ) => {
     const store = createStore(reducer, preloadedState, enchancer);
     let { dispatch } = store;

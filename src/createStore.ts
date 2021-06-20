@@ -3,7 +3,7 @@ import { Reducer, State, IStore } from "./types";
 export function createStore(rootReducer: Reducer, initialState: State): IStore {
   let state = rootReducer(initialState, { type: "__INIT__" });
 
-  const subscribers: any[] = [];
+  const subscribers: Function[] = [];
 
   return {
     dispatch(action) {
@@ -21,7 +21,6 @@ export function createStore(rootReducer: Reducer, initialState: State): IStore {
     },
 
     replaceReducer(nextReducer) {
-      // eslint-disable-next-line no-param-reassign
       rootReducer = nextReducer;
     },
   };

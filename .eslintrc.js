@@ -26,5 +26,6 @@ module.exports = {
     "import/extensions": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/ban-types": "off",
+    "no-param-reassign": "off",
   },
 };
